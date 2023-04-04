@@ -8,7 +8,5 @@ public interface UserService {
 
     User saveUser(User user, int bankId);
     User updateUser(User user, int id);
-    User display(int id);
-    List<User> display();
     void deleteUser(int id);
 }

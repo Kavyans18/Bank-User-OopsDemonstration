@@ -2,6 +2,7 @@ package com.pws.BankUseroopsDemonstration.controller;
 
 import com.pws.BankUseroopsDemonstration.entity.User;
 import com.pws.BankUseroopsDemonstration.service.UserService;
+import com.pws.BankUseroopsDemonstration.service.UserServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,8 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     @Autowired
-    UserService service;
+    UserServiceImp service;
+
 
     @PostMapping("/save/{bankId}")
     public ResponseEntity<User> saveUser(@RequestBody User user, @PathVariable int bankId) {
@@ -30,13 +32,13 @@ public class UserController {
     }
 
     @GetMapping("/byId/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable int id) {
+    public ResponseEntity<User> display(@PathVariable int id) {
         User u =service.display(id);
         return new ResponseEntity<>(u,HttpStatus.OK);
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<User>> getAll(){
+    public ResponseEntity<List<User>> display(){
        List<User> user =  service.display();
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
