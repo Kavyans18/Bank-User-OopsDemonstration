@@ -1,9 +1,10 @@
 package com.pws.BankUseroopsDemonstration.exception;
 
-public class IdNotFoundException extends RuntimeException{
-    String message = "INVALID ID";
+public class NoDataAvailableException extends RuntimeException{
 
-    public IdNotFoundException(String message) {
+    String message = "No data found in the data base";
+
+    public NoDataAvailableException(String message) {
         super();
         this.message = message;
     }
